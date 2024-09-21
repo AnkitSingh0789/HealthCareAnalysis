@@ -6,30 +6,31 @@ import json
 
 app = Flask(__name__)
 
-# Dummy data for all 36 states and union territories for diabetes analysis
+# Dummy data for all 36 states and union territories for Infectious Diseases analysis
 data = {
     'State': ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana',
               'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur',
               'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana',
               'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal', 'Andaman and Nicobar Islands', 'Chandigarh',
               'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Lakshadweep', 'Puducherry', 'Ladakh', 'Jammu and Kashmir'],
-    'Cases': [1500000, 200000, 1200000, 1400000, 800000, 300000, 2500000, 1100000, 500000, 900000, 2000000, 
-              1800000, 1600000, 3000000, 400000, 600000, 250000, 350000, 1300000, 1100000, 1700000, 150000, 
-              2200000, 1300000, 450000, 1600000, 500000, 2000000, 80000, 150000, 120000, 1500000, 50000, 200000, 
+    'Cases': [3000000, 200000, 1500000, 1800000, 1000000, 350000, 2500000, 1400000, 600000, 900000, 2200000, 
+              2000000, 1900000, 4000000, 500000, 600000, 300000, 450000, 1300000, 1100000, 1700000, 120000, 
+              2600000, 1300000, 400000, 1500000, 500000, 2400000, 80000, 120000, 100000, 2000000, 60000, 250000, 
               70000, 500000],
-    'Deaths': [30000, 10000, 25000, 28000, 15000, 5000, 50000, 22000, 10000, 18000, 45000, 
-               40000, 35000, 65000, 8000, 12000, 6000, 9000, 26000, 22000, 34000, 3000, 
+    'Deaths': [50000, 3000, 30000, 28000, 15000, 2000, 50000, 22000, 10000, 18000, 45000, 
+               40000, 35000, 60000, 8000, 12000, 6000, 9000, 25000, 20000, 30000, 5000, 
                44000, 26000, 9000, 32000, 10000, 40000, 2000, 3000, 2500, 30000, 1000, 4000, 
                1500, 10000],
-    'Recovered': [900000, 150000, 800000, 850000, 500000, 200000, 1500000, 700000, 300000, 500000, 1300000, 
-                  1100000, 1000000, 2000000, 250000, 350000, 150000, 250000, 800000, 700000, 1000000, 90000, 
-                  1400000, 800000, 300000, 1000000, 300000, 1200000, 60000, 90000, 75000, 900000, 40000, 150000, 
+    'Recovered': [2200000, 150000, 1200000, 1300000, 800000, 250000, 1800000, 900000, 400000, 600000, 1500000, 
+                  1400000, 1300000, 2500000, 300000, 350000, 150000, 250000, 700000, 600000, 1000000, 90000, 
+                  1700000, 900000, 300000, 1000000, 300000, 1200000, 60000, 90000, 75000, 1200000, 40000, 150000, 
                   50000, 300000],
-    'Active': [570000, 35000, 320000, 525000, 285000, 95000, 950000, 380000, 190000, 380000, 700000, 
-               650000, 570000, 1000000, 142000, 238000, 94000, 90000, 510000, 380000, 670000, 57000, 
-               760000, 470000, 141000, 580000, 190000, 760000, 18000, 57000, 42500, 600000, 9000, 46000, 
-               19000, 190000]
+    'Active': [500000, 20000, 180000, 400000, 300000, 50000, 500000, 250000, 200000, 300000, 800000, 
+               600000, 570000, 900000, 200000, 240000, 40000, 80000, 300000, 300000, 500000, 5000, 
+               850000, 500000, 100000, 500000, 100000, 600000, 12000, 20000, 18000, 300000, 10000, 30000, 
+               10000, 50000]
 }
+
 
 
 import plotly.graph_objs as go
@@ -44,7 +45,7 @@ def create_charts(top_states, top_n):
         top_states,
         x='State',
         y='Cases',
-        title=f'Top {top_n} States in India: Diabetes Cases',
+        title=f'Top {top_n} States in India: Infectious Diseases Cases',
         labels={'Cases': 'Number of Cases'},
         color='Cases',
         color_continuous_scale='Rainbow'
@@ -78,7 +79,7 @@ def create_charts(top_states, top_n):
     pie_fig = go.Figure(
         data=[go.Pie(labels=top_states['State'], values=top_states['Cases'], hole=0.3)],
         layout=go.Layout(
-            title=f'Distribution of Diabetes Cases in Top {top_n} States',
+            title=f'Distribution of Infectious Diseases Cases in Top {top_n} States',
             updatemenus=[{
                 'type': 'buttons',
                 'buttons': [{
@@ -150,7 +151,7 @@ def create_charts(top_states, top_n):
             line=dict(color= 'rgb(255, 244, 10)')
         )],
         layout=go.Layout(
-            title=f'Area Chart for Diabetes Cases in Top {top_n} States',
+            title=f'Area Chart for Infectious Diseases Cases in Top {top_n} States',
             xaxis_title='State',
             yaxis_title='Number of Cases',
             plot_bgcolor='rgb(35, 54, 57)',
@@ -209,7 +210,7 @@ def index():
     bar_fig_html, pie_fig_html, scatter_fig_html, area_fig_html  = create_charts(top_states, top_n)
 
     
-    return render_template('diabetes.html', 
+    return render_template('InfectiousDiseases.html', 
                            bar_fig_html=bar_fig_html,
                            pie_fig_html=pie_fig_html,
                            scatter_fig_html=scatter_fig_html,

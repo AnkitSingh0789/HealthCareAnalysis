@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardiovascular Diseases in India</title>
+    <title>Cancer in India</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <style>
@@ -182,14 +182,14 @@
 
 <body>
     <header>
-        <h1>Cardiovascular Diseases Data in India</h1>
+        <h1>Cancer Data in India</h1>
     </header>
 
     <main>
         <div class="section">
             <h2>How to Use This Dashboard</h2>
-            <p>Welcome to the Cardiovascular Diseases Data Dashboard for India. This website provides visual insights into Cardiovascular Diseases cases, death rates, and cure rates across different states. Use the form below to select the number of top states you want to analyze. The
-                dashboard will update to show charts and graphs related to Cardiovascular Diseases data in those states.</p>
+            <p>Welcome to the Cancer Data Dashboard for India. This website provides visual insights into Cancer cases, death rates, and cure rates across different states. Use the form below to select the number of top states you want to analyze. The
+                dashboard will update to show charts and graphs related to Cancer data in those states.</p>
         </div>
 
         <div class="form-container">
@@ -201,16 +201,16 @@
         </div>
 
         <div class="section">
-            <h2>Top {{ top_n }} States in India: Cardiovascular Diseases Cases</h2>
-            <p>This bar chart shows the number of Cardiovascular Diseases cases in the top {{ top_n }} states. Each bar represents a state, with the height of the bar corresponding to the number of cases.</p>
+            <h2>Top {{ top_n }} States in India: Cancer Cases</h2>
+            <p>This bar chart shows the number of Cancer cases in the top {{ top_n }} states. Each bar represents a state, with the height of the bar corresponding to the number of cases.</p>
             <div class="chart-container" data-aos="fade-up">
                 {{ bar_fig_html | safe }}
             </div>
         </div>
 
         <div class="section">
-            <h2>Distribution of Cardiovascular Diseases Cases in Top {{ top_n }} States</h2>
-            <p>The pie chart illustrates the distribution of Cardiovascular Diseases cases among the top {{ top_n }} states. Each slice represents a state, with the size of the slice proportional to the number of cases in that state.</p>
+            <h2>Distribution of Cancer Cases in Top {{ top_n }} States</h2>
+            <p>The pie chart illustrates the distribution of Cancer cases among the top {{ top_n }} states. Each slice represents a state, with the size of the slice proportional to the number of cases in that state.</p>
             <div class="chart-container" data-aos="fade-up" data-aos-delay="200">
                 {{ pie_fig_html | safe }}
             </div>
@@ -225,7 +225,7 @@
         </div>
 
         <div class="section">
-            <h2>Area Chart of Cardiovascular Diseases Cases: Top {{ top_n }} States</h2>
+            <h2>Area Chart of Cancer Cases: Top {{ top_n }} States</h2>
             <p>This interactive area chart visualizes data for the top {{ top_n }} states.</p>
             <div class="chart-container" data-aos="fade-up" data-aos-delay="600">
                 {{ area_fig_html | safe }}
@@ -234,7 +234,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Cardiovascular Diseases Data Dashboard. All rights reserved.</p>
+        <p>&copy; 2024 Cancer Data Dashboard. All rights reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
