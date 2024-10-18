@@ -39,6 +39,16 @@ main {
     padding: 20px;
     max-width: 2000px;
     margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .section {

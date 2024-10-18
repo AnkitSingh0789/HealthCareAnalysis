@@ -1,35 +1,36 @@
 from flask import Flask, render_template, request
-import pandas as pd
+import pandas as pdcd
 import plotly.express as px
 import plotly.io as pio
 import json
 
 app = Flask(__name__)
 
-# Dummy data for all 36 states and union territories for diabetes analysis
+# Dummy data for all 36 states and union territories for Hypertension analysis
 data = {
     'State': ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana',
               'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur',
               'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana',
               'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal', 'Andaman and Nicobar Islands', 'Chandigarh',
               'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Lakshadweep', 'Puducherry', 'Ladakh', 'Jammu and Kashmir'],
-    'Cases': [1200000, 250000, 1000000, 1400000, 800000, 300000, 2300000, 1100000, 600000, 950000, 2000000, 
-              1900000, 1600000, 3200000, 500000, 700000, 260000, 350000, 1500000, 1200000, 1800000, 160000, 
-              2400000, 1400000, 500000, 1700000, 600000, 2200000, 90000, 160000, 130000, 1400000, 60000, 210000, 
-              80000, 550000],
-    'Deaths': [35000, 12000, 27000, 29000, 16000, 6000, 55000, 23000, 11000, 19000, 46000, 
-               42000, 36000, 67000, 9000, 13000, 7000, 9500, 27000, 23000, 35000, 3200, 
-               45000, 27000, 10000, 34000, 11000, 42000, 2500, 3200, 2600, 35000, 1200, 4500, 
-               1600, 11000],
-    'Recovered': [950000, 160000, 850000, 880000, 500000, 200000, 1600000, 700000, 350000, 500000, 1400000, 
-                  1200000, 1100000, 2200000, 250000, 370000, 150000, 260000, 900000, 750000, 1100000, 100000, 
-                  1500000, 900000, 350000, 1100000, 300000, 1300000, 65000, 100000, 80000, 950000, 40000, 180000, 
-                  60000, 320000],
-    'Active': [250000, 20000, 300000, 450000, 300000, 150000, 550000, 280000, 150000, 300000, 500000, 
-               600000, 500000, 1000000, 145000, 250000, 100000, 120000, 500000, 400000, 700000, 50000, 
-               800000, 500000, 150000, 600000, 250000, 750000, 30000, 80000, 60000, 500000, 10000, 40000, 
-               15000, 150000]
+    'Cases': [2800000, 140000, 1500000, 2300000, 1200000, 250000, 3800000, 1700000, 800000, 1400000, 3400000, 
+              3200000, 2700000, 5000000, 600000, 850000, 400000, 500000, 2100000, 1800000, 2400000, 220000, 
+              3900000, 2200000, 850000, 2800000, 850000, 3000000, 120000, 220000, 180000, 2900000, 100000, 320000, 
+              95000, 800000],
+    'Deaths': [80000, 2500, 22000, 50000, 29000, 4500, 75000, 45000, 20000, 30000, 60000, 
+               58000, 50000, 110000, 12000, 18000, 9000, 16000, 45000, 38000, 52000, 6000, 
+               75000, 50000, 14000, 55000, 18000, 65000, 4000, 6000, 3500, 55000, 2000, 8500, 
+               2500, 22000],
+    'Recovered': [1800000, 100000, 1000000, 1500000, 800000, 150000, 2400000, 1200000, 500000, 950000, 2400000, 
+                  2200000, 1800000, 3600000, 450000, 600000, 270000, 350000, 1500000, 1200000, 1800000, 150000, 
+                  2800000, 1600000, 550000, 1900000, 550000, 2300000, 90000, 150000, 120000, 2000000, 65000, 240000, 
+                  70000, 500000],
+    'Active': [920000, 37500, 480000, 750000, 400000, 95000, 1300000, 510000, 280000, 420000, 1000000, 
+               950000, 870000, 1400000, 138000, 230000, 123000, 134000, 600000, 420000, 750000, 66000, 
+               1100000, 550000, 186000, 750000, 180000, 700000, 26000, 55000, 42000, 900000, 32000, 78000, 
+               22500, 280000]
 }
+
 
 import plotly.graph_objs as go
 import numpy as np
@@ -43,7 +44,7 @@ def create_charts(top_states, top_n):
         top_states,
         x='State',
         y='Cases',
-        title=f'Top {top_n} States in India: Diabetes Cases',
+        title=f'Top {top_n} States in India: Hypertension Cases',
         labels={'Cases': 'Number of Cases'},
         color='Cases',
         color_continuous_scale='Rainbow'
@@ -77,7 +78,7 @@ def create_charts(top_states, top_n):
     pie_fig = go.Figure(
         data=[go.Pie(labels=top_states['State'], values=top_states['Cases'], hole=0.3)],
         layout=go.Layout(
-            title=f'Distribution of Diabetes Cases in Top {top_n} States',
+            title=f'Distribution of Hypertension Cases in Top {top_n} States',
             updatemenus=[{
                 'type': 'buttons',
                 'buttons': [{
@@ -132,7 +133,7 @@ def create_charts(top_states, top_n):
                     y=top_states['Cases'] * (i + 1) / (len(top_states)),
                     mode='lines',
                     fill='tozeroy',
-                    line=dict(color='rgb(255, 87, 34)')
+                    line=dict(color='rgb(255, 244, 10)')
                 )
             ],
             name=str(i)
@@ -146,13 +147,13 @@ def create_charts(top_states, top_n):
             y=top_states['Cases'] * 1 / (len(top_states)),
             mode='lines',
             fill='tozeroy',
-            line=dict(color= 'rgb(255, 87, 34)')
+            line=dict(color= 'rgb(255, 244, 10)')
         )],
         layout=go.Layout(
-            title=f'Area Chart for Diabetes Cases in Top {top_n} States',
+            title=f'Area Chart for Hypertension Cases in Top {top_n} States',
             xaxis_title='State',
             yaxis_title='Number of Cases',
-            plot_bgcolor='rgb(245, 222, 179)',
+            plot_bgcolor='rgb(35, 54, 57)',
             updatemenus=[
                 {
                     'buttons': [
@@ -208,7 +209,7 @@ def index():
     bar_fig_html, pie_fig_html, scatter_fig_html, area_fig_html  = create_charts(top_states, top_n)
 
     
-    return render_template('cancer.html', 
+    return render_template('hypertension.html', 
                            bar_fig_html=bar_fig_html,
                            pie_fig_html=pie_fig_html,
                            scatter_fig_html=scatter_fig_html,
