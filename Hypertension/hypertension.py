@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import pandas as pdcd
+import pandas as pd
 import plotly.express as px
 import plotly.io as pio
 import json
@@ -133,7 +133,7 @@ def create_charts(top_states, top_n):
                     y=top_states['Cases'] * (i + 1) / (len(top_states)),
                     mode='lines',
                     fill='tozeroy',
-                    line=dict(color='rgb(255, 244, 10)')
+                    line=dict(color='rgb(255, 87, 34)')
                 )
             ],
             name=str(i)
@@ -147,13 +147,13 @@ def create_charts(top_states, top_n):
             y=top_states['Cases'] * 1 / (len(top_states)),
             mode='lines',
             fill='tozeroy',
-            line=dict(color= 'rgb(255, 244, 10)')
+            line=dict(color= 'rgb(255, 87, 34)')
         )],
         layout=go.Layout(
             title=f'Area Chart for Hypertension Cases in Top {top_n} States',
             xaxis_title='State',
             yaxis_title='Number of Cases',
-            plot_bgcolor='rgb(35, 54, 57)',
+            plot_bgcolor='rgb(245, 222, 179)',
             updatemenus=[
                 {
                     'buttons': [

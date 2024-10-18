@@ -6,29 +6,29 @@ import json
 
 app = Flask(__name__)
 
-# Dummy data for all 36 states and union territories for Kidney Diseases analysis
+# Dummy data for all 36 states and union territories for Chronic Respiratory Diseases analysis
 data = {
     'State': ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana',
               'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur',
               'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana',
               'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal', 'Andaman and Nicobar Islands', 'Chandigarh',
               'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Lakshadweep', 'Puducherry', 'Ladakh', 'Jammu and Kashmir'],
-    'Cases': [400000, 25000, 300000, 600000, 200000, 50000, 600000, 350000, 150000, 250000, 800000, 
-              700000, 500000, 1000000, 80000, 120000, 50000, 80000, 300000, 250000, 350000, 30000, 
-              450000, 300000, 100000, 400000, 120000, 500000, 10000, 25000, 20000, 400000, 10000, 30000, 
-              15000, 80000],
-    'Deaths': [50000, 2000, 15000, 25000, 8000, 1000, 15000, 10000, 5000, 8000, 25000, 
-               22000, 18000, 40000, 6000, 8000, 4000, 6000, 20000, 15000, 20000, 2000, 
-               30000, 20000, 6000, 15000, 5000, 30000, 1000, 1500, 1000, 20000, 500, 1000, 
-               800, 5000],
-    'Recovered': [200000, 12000, 150000, 350000, 100000, 30000, 400000, 200000, 80000, 120000, 500000, 
-                  450000, 350000, 800000, 60000, 80000, 25000, 30000, 120000, 100000, 150000, 20000, 
-                  250000, 180000, 60000, 250000, 60000, 300000, 8000, 10000, 8000, 300000, 6000, 20000, 
-                  7000, 30000],
-    'Active': [150000, 7000, 135000, 250000, 92000, 15000, 350000, 140000, 70000, 100000, 250000, 
-               250000, 170000, 200000, 14000, 25000, 10000, 15000, 60000, 40000, 50000, 8000, 
-               200000, 120000, 34000, 150000, 50000, 170000, 2000, 5000, 6000, 80000, 3000, 1000, 
-               6000, 25000]
+    'Cases': [1000000, 70000, 800000, 1200000, 750000, 120000, 1400000, 900000, 450000, 850000, 2000000, 
+              1900000, 1600000, 3500000, 400000, 500000, 250000, 350000, 1300000, 1100000, 1700000, 120000, 
+              2400000, 1300000, 400000, 1600000, 450000, 2000000, 65000, 130000, 95000, 1700000, 40000, 150000, 
+              70000, 450000],
+    'Deaths': [30000, 2500, 20000, 32000, 19000, 4000, 50000, 35000, 15000, 28000, 50000, 
+               48000, 42000, 90000, 10000, 15000, 7000, 12000, 38000, 32000, 40000, 5000, 
+               60000, 37000, 12000, 50000, 14000, 55000, 3000, 3500, 3000, 40000, 1500, 5000, 
+               2000, 18000],
+    'Recovered': [700000, 50000, 600000, 850000, 500000, 90000, 1000000, 700000, 300000, 550000, 1400000, 
+                  1300000, 1100000, 2300000, 320000, 400000, 190000, 250000, 900000, 750000, 1100000, 90000, 
+                  1700000, 900000, 290000, 1100000, 300000, 1500000, 50000, 95000, 70000, 1200000, 30000, 100000, 
+                  50000, 250000],
+    'Active': [270000, 17500, 180000, 315000, 231000, 26000, 350000, 150000, 135000, 272000, 550000, 
+               510000, 450000, 1100000, 68000, 85000, 53000, 88000, 400000, 300000, 560000, 25000, 
+               700000, 390000, 98000, 450000, 135000, 445000, 12000, 31500, 22000, 460000, 8500, 45000, 
+               18000, 180000]
 }
 
 
@@ -44,7 +44,7 @@ def create_charts(top_states, top_n):
         top_states,
         x='State',
         y='Cases',
-        title=f'Top {top_n} States in India: Kidney Diseases Cases',
+        title=f'Top {top_n} States in India: Chronic Respiratory Diseases Cases',
         labels={'Cases': 'Number of Cases'},
         color='Cases',
         color_continuous_scale='Rainbow'
@@ -78,7 +78,7 @@ def create_charts(top_states, top_n):
     pie_fig = go.Figure(
         data=[go.Pie(labels=top_states['State'], values=top_states['Cases'], hole=0.3)],
         layout=go.Layout(
-            title=f'Distribution of Kidney Diseases Cases in Top {top_n} States',
+            title=f'Distribution of Chronic Respiratory Diseases Cases in Top {top_n} States',
             updatemenus=[{
                 'type': 'buttons',
                 'buttons': [{
@@ -133,7 +133,7 @@ def create_charts(top_states, top_n):
                     y=top_states['Cases'] * (i + 1) / (len(top_states)),
                     mode='lines',
                     fill='tozeroy',
-                    line=dict(color='rgb(255, 244, 10)')
+                    line=dict(color='rgb(255, 87, 34)')
                 )
             ],
             name=str(i)
@@ -147,13 +147,13 @@ def create_charts(top_states, top_n):
             y=top_states['Cases'] * 1 / (len(top_states)),
             mode='lines',
             fill='tozeroy',
-            line=dict(color= 'rgb(255, 244, 10)')
+            line=dict(color= 'rgb(255, 87, 34)')
         )],
         layout=go.Layout(
-            title=f'Area Chart for Kidney Diseases Cases in Top {top_n} States',
+            title=f'Area Chart for Chronic Respiratory Diseases Cases in Top {top_n} States',
             xaxis_title='State',
             yaxis_title='Number of Cases',
-            plot_bgcolor='rgb(35, 54, 57)',
+            plot_bgcolor='rgb(245, 222, 179)',
             updatemenus=[
                 {
                     'buttons': [
@@ -209,7 +209,7 @@ def index():
     bar_fig_html, pie_fig_html, scatter_fig_html, area_fig_html  = create_charts(top_states, top_n)
 
     
-    return render_template('KidneyDiseases.html', 
+    return render_template('ChronicRespiratory.html', 
                            bar_fig_html=bar_fig_html,
                            pie_fig_html=pie_fig_html,
                            scatter_fig_html=scatter_fig_html,

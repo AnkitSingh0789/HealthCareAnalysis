@@ -137,4 +137,4 @@ def index():
                            apex_chart_data=json.dumps(apex_chart_data))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5002, debug=True)

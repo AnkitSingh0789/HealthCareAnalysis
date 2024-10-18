@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chronic Respiratory Diseases in India</title>
+    <title>Kidney Diseases in India</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <style>
@@ -111,12 +111,50 @@
         }
         
         .chart-container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 30px;
+            background-color: #f0f4f8;
+            /* Soft background color for a modern look */
+            border-radius: 12px;
+            /* Smoother and larger corner rounding */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            /* Deeper shadow for a floating effect */
+            padding: 25px;
+            /* Slightly increased padding for better spacing */
+            margin-bottom: 40px;
+            /* More margin for breathing room */
             position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transition effects for hover */
+        }
+        /* Add a hover effect to enhance interaction */
+        
+        .chart-container:hover {
+            transform: translateY(-10px);
+            /* Slight upward movement on hover */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            /* Stronger shadow on hover for a pop-out effect */
+        }
+        /* Add a subtle gradient to the background for a sleek appearance */
+        
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+            /* Subtle gradient */
+            border-radius: inherit;
+            /* Keep border-radius consistent */
+            z-index: 1;
+            pointer-events: none;
+            /* Prevent interference with interaction */
+        }
+        
+        .chart-container>* {
+            position: relative;
+            z-index: 2;
+            /* Ensure content is above the gradient */
         }
         
         .chart-container h2 {
@@ -182,14 +220,15 @@
 
 <body>
     <header>
-        <h1>Chronic Respiratory Diseases Data in India</h1>
+        <h1>Kidney Diseases Data in India</h1>
     </header>
 
     <main>
         <div class="section">
-            <h2>How to Use This Dashboard</h2>
-            <p>Welcome to the Chronic Respiratory Diseases Data Dashboard for India. This website provides visual insights into Chronic Respiratory Diseases cases, death rates, and cure rates across different states. Use the form below to select the number of top states you want to analyze. The
-                dashboard will update to show charts and graphs related to Chronic Respiratory Diseases data in those states.</p>
+            <h2>Kidney Diseases in India: A Growing Health Concern</h2>
+            <p>Kidney diseases, including chronic kidney disease (CKD), are rising in India due to factors like diabetes, hypertension, and poor access to early diagnosis. Key Drivers: Diabetes and hypertension are the leading causes, along with dehydration,
+                poor diet, and inadequate healthcare. Health Impact: Kidney failure can lead to life-threatening complications, requiring dialysis or transplants. Early detection, lifestyle changes, and improved access to treatment are crucial to managing
+                kidney diseases. Government initiatives aim to increase awareness and provide affordable care for those affected.</p>
         </div>
 
         <div class="form-container">
@@ -201,16 +240,16 @@
         </div>
 
         <div class="section">
-            <h2>Top {{ top_n }} States in India: Chronic Respiratory Diseases Cases</h2>
-            <p>This bar chart shows the number of Chronic Respiratory Diseases cases in the top {{ top_n }} states. Each bar represents a state, with the height of the bar corresponding to the number of cases.</p>
+            <h2>Top {{ top_n }} States in India: Kidney Diseases Cases</h2>
+            <p>This bar chart shows the number of Kidney Diseases cases in the top {{ top_n }} states. Each bar represents a state, with the height of the bar corresponding to the number of cases.</p>
             <div class="chart-container" data-aos="fade-up">
                 {{ bar_fig_html | safe }}
             </div>
         </div>
 
         <div class="section">
-            <h2>Distribution of Chronic Respiratory Diseases Cases in Top {{ top_n }} States</h2>
-            <p>The pie chart illustrates the distribution of Chronic Respiratory Diseases cases among the top {{ top_n }} states. Each slice represents a state, with the size of the slice proportional to the number of cases in that state.</p>
+            <h2>Distribution of Kidney Diseases Cases in Top {{ top_n }} States</h2>
+            <p>The pie chart illustrates the distribution of Kidney Diseases cases among the top {{ top_n }} states. Each slice represents a state, with the size of the slice proportional to the number of cases in that state.</p>
             <div class="chart-container" data-aos="fade-up" data-aos-delay="200">
                 {{ pie_fig_html | safe }}
             </div>
@@ -225,7 +264,7 @@
         </div>
 
         <div class="section">
-            <h2>Area Chart of Chronic Respiratory Diseases Cases: Top {{ top_n }} States</h2>
+            <h2>Area Chart of Kidney Diseases Cases: Top {{ top_n }} States</h2>
             <p>This interactive area chart visualizes data for the top {{ top_n }} states.</p>
             <div class="chart-container" data-aos="fade-up" data-aos-delay="600">
                 {{ area_fig_html | safe }}
@@ -234,7 +273,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Chronic Respiratory Diseases Data Dashboard. All rights reserved.</p>
+        <p>&copy; 2024 Kidney Diseases Data Dashboard. All rights reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
