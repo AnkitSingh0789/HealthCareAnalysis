@@ -1,0 +1,123 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("./background-image.jpg") ;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* h1 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+} */
+ .main-content{
+    padding: 1vw;
+ }
+ .header{
+    width:100%;
+    height:10vh;
+    background-color:#e14234;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.symptom-button {
+    background-color: #ffffff;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.symptom-button.selected {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+       
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .form-check-label {
+        font-size: 0.9rem;
+    }
+    .btn-primary {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    .form-check-label {
+        font-size: 0.8rem;
+    }
+    .btn-primary {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+}

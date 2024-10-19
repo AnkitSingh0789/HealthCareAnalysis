@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <style>
+        .form-check-label {
+           
+            min-height: 9vh;
+            min-width: 9vw;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:0 1vw;
+            background-image:  linear-gradient(93deg, #53b2fe, #065af3);
+            box-shadow: 3px 3px #888888;
+           
+        }
+        .form-check{
+            min-height: 9vh;
+            min-width: 9vw;
+            
+            
+        }
+
+        input[type="checkbox"] {
+            visibility: hidden; /* Hide the actual checkbox */
+        }
+
+        .form-check-label {
+            display: flex; /* Keep label as flex for proper alignment */
+            align-items: center;
+            height: 100%; /* Allow label to fill form-check height */
+            width: 100%; /* Allow label to fill form-check width */
+            cursor: pointer; /* Pointer cursor for the label */
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
+            gap: 20px;
+        }
+
+        /* Style for checked checkbox */
+        input[type="checkbox"]:checked + .form-check-label {
+            background-color: #012f75 ; /* Change background when checked */
+            color: white; 
+            height: 100%;
+            width: 9vw;
+            border-radius: 30px;
+            background-image:  none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Disease Prediction System</h1>
+        </div>
+        <div class="main-content">
+            <form method="post" action="/">
+                <label for="symptoms" style="font-weight: 800; text-align: center; width: 100%; font-size: 3vh;"> Please Select Your Symptoms:</label><br>
+                <div class="form-group">
+                    
+                    <div class="form-check">  
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="itching" id="itching">
+                        <label class="form-check-label" for="itching">  
+                            Itching 
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="skin_rash" id="skin_rash">
+                        <label class="form-check-label" for="skin_rash">Skin Rash</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="nodal_skin_eruptions" id="nodal_skin_eruptions">
+                        <label class="form-check-label" for="nodal_skin_eruptions">Nodal Skin Eruptions</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="continuous_sneezing" id="continuous_sneezing">
+                        <label class="form-check-label" for="continuous_sneezing">Continuous Sneezing</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="shivering" id="shivering">
+                        <label class="form-check-label" for="shivering">Shivering</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="chills" id="chills">
+                        <label class="form-check-label" for="chills">Chills</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="joint_pain" id="joint_pain">
+                        <label class="form-check-label" for="joint_pain">Joint Pain</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="stomach_pain" id="stomach_pain">
+                        <label class="form-check-label" for="stomach_pain">Stomach Pain</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="acidity" id="acidity">
+                        <label class="form-check-label" for="acidity">Acidity</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="ulcers_on_tongue" id="ulcers_on_tongue">
+                        <label class="form-check-label" for="ulcers_on_tongue">Ulcers on Tongue</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="muscle_wasting" id="muscle_wasting">
+                        <label class="form-check-label" for="muscle_wasting">Muscle Wasting</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="vomiting" id="vomiting">
+                        <label class="form-check-label" for="vomiting">Vomiting</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="burning_micturition" id="burning_micturition">
+                        <label class="form-check-label" for="burning_micturition">Burning Micturition</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="spotting_urination" id="spotting_urination">
+                        <label class="form-check-label" for="spotting_urination">Spotting Urination</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="fatigue" id="fatigue">
+                        <label class="form-check-label" for="fatigue">Fatigue</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="weight_gain" id="weight_gain">
+                        <label class="form-check-label" for="weight_gain">Weight Gain</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="anxiety" id="anxiety">
+                        <label class="form-check-label" for="anxiety">Anxiety</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="cold_hands_and_feets" id="cold_hands_and_feets">
+                        <label class="form-check-label" for="cold_hands_and_feets">Cold Hands and Feets</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="mood_swings" id="mood_swings">
+                        <label class="form-check-label" for="mood_swings">Mood Swings</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="weight_loss" id="weight_loss">
+                        <label class="form-check-label" for="weight_loss">Weight Loss</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="restlessness" id="restlessness">
+                        <label class="form-check-label" for="restlessness">Restlessness</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="lethargy" id="lethargy">
+                        <label class="form-check-label" for="lethargy">Lethargy</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="patches_in_throat" id="patches_in_throat">
+                        <label class="form-check-label" for="patches_in_throat">Patches in Throat</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="irregular_sugar_level" id="irregular_sugar_level">
+                        <label class="form-check-label" for="irregular_sugar_level">Irregular Sugar Level</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="cough" id="cough">
+                        <label class="form-check-label" for="cough">Cough</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="high_fever" id="high_fever">
+                        <label class="form-check-label" for="high_fever">High Fever</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="sunken_eyes" id="sunken_eyes">
+                        <label class="form-check-label" for="sunken_eyes">Sunken Eyes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="breathlessness" id="breathlessness">
+                        <label class="form-check-label" for="breathlessness">Breathlessness</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="unsteadiness" id="unsteadiness">
+                        <label class="form-check-label" for="unsteadiness">Unsteadiness</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="dehydration" id="dehydration">
+                        <label class="form-check-label" for="dehydration">Dehydration</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="indigestion" id="indigestion">
+                        <label class="form-check-label" for="indigestion">Indigestion</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="headache" id="headache">
+                        <label class="form-check-label" for="headache">Headache</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="yellowish_skin" id="yellowish_skin">
+                        <label class="form-check-label" for="yellowish_skin">Yellowish Skin</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="dark_urine" id="dark_urine">
+                        <label class="form-check-label" for="dark_urine">Dark Urine</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="nausea" id="nausea">
+                        <label class="form-check-label" for="nausea">Nausea</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="loss_of_appetite" id="loss_of_appetite">
+                        <label class="form-check-label" for="loss_of_appetite">Loss of Appetite</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="pain_behind_the_eyes" id="pain_behind_the_eyes">
+                        <label class="form-check-label" for="pain_behind_the_eyes">Pain Behind the Eyes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="irregular_blood_sugar" id="irregular_blood_sugar">
+                        <label class="form-check-label" for="irregular_blood_sugar">Irregular Blood Sugar</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="swelling" id="swelling">
+                        <label class="form-check-label" for="swelling">Swelling</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

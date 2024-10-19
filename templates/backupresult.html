@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link ref="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <div class=" container ">
+        <h1>Disease Prediction Result</h1>
+        <div class="result-section ">
+            <h2>Predicted Disease: {{ disease }}</h2>
+            <p><strong>Description:</strong> {{ desc }}</p>
+            <p><strong>Precautions:</strong></p>
+            <ul>
+                {% for precaution in precautions[0] %}
+                <li>{{ precaution }}</li>
+                {% endfor %}
+            </ul>
+            <p><strong>Medications:</strong></p>
+            <ul>
+                {% for medication in med %}
+                <li>{{ medication }}</li>
+                {% endfor %}
+            </ul>
+            <p><strong>Diet Suggestions:</strong></p>
+            <ul>
+                {% for diet in die %}
+                <li>{{ diet }}</li>
+                {% endfor %}
+            </ul>
+            <p><strong>Workout Suggestions:</strong></p>
+            <ul>
+                {% for workout_item in workout %}
+                <li>{{ workout_item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="/ " class="btn btn-primary ">Back to Home</a>
+    </div>
+</body>
+
+</html>
